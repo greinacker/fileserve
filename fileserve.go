@@ -21,7 +21,7 @@ func handler(w http.ResponseWriter, req *http.Request) {
 	log.Println(req.Method, req.URL.Path)
 
 	switch req.Method {
-	case "GET":
+	case "GET", "HEAD":
 		http.ServeFile(w, req, rootPath+req.URL.Path)
 	case "POST", "PUT":
 		buf, _ := ioutil.ReadAll(req.Body)
